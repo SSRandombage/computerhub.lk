@@ -163,7 +163,7 @@ li {
 }
 
 li::before {
-    content: "Ã¢Å“â€œ";
+    content: "\2713";
     position: absolute;
     left: 15px;
     color: #06d6a0;
@@ -189,7 +189,7 @@ ul ul li {
 }
 
 ul ul li::before {
-    content: "Ã¢â€ Â³";
+    content: "\21B3";
     color: #00b4d8;
 }
 
