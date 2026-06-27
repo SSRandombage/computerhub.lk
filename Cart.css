@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 body {
-    background: linear-gradient(135deg, #070412 0%, #0c081e 50%, #170d2b 100%);
+    background: linear-gradient(120deg, #2980b9, #8e44ad);
     font-family: 'Plus Jakarta Sans', arial, sans-serif;
     color: #f3f3f5;
     margin: 0;
@@ -13,7 +13,7 @@ body {
     margin: 40px 0 20px 0;
     font-size: 2.5em;
     font-weight: 700;
-    color: white;
+    color: #0f0c24;
 }
 
 .cart-container {
