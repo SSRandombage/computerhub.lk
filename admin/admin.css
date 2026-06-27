@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Plus Jakarta Sans', Arial, sans-serif;
-    background: linear-gradient(120deg, #2980b9, #8e44ad);
+    background: linear-gradient(135deg, #070412 0%, #0c081e 50%, #170d2b 100%);
     color: #f3f3f5;
     margin: 0;
     padding-top: 85px;

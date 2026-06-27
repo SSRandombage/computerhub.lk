@@ -3,7 +3,7 @@
 /* General Styles */
 body {
     font-family: 'Plus Jakarta Sans', Arial, sans-serif;
-    background: linear-gradient(120deg, #2980b9, #8e44ad);
+    background: linear-gradient(135deg, #070412 0%, #0c081e 50%, #170d2b 100%);
     margin: 0;
     padding: 30px 20px 0 20px;
     color: #f3f3f5;
@@ -163,7 +163,7 @@ li {
 }
 
 li::before {
-    content: "✓";
+    content: "âœ“";
     position: absolute;
     left: 15px;
     color: #06d6a0;
@@ -189,7 +189,7 @@ ul ul li {
 }
 
 ul ul li::before {
-    content: "↳";
+    content: "â†³";
     color: #00b4d8;
 }
 
