@@ -3,10 +3,10 @@
 /* General Styles */
 body {
     font-family: 'Plus Jakarta Sans', Arial, sans-serif;
-    background: linear-gradient(135deg, #070412 0%, #0c081e 50%, #170d2b 100%);
+    background: linear-gradient(120deg, #2980b9, #8e44ad);
     margin: 0;
     padding: 30px 20px 0 20px;
-    color: #f3f3f5;
+    color: #0f0c24;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -129,8 +129,8 @@ h1 {
     margin: 40px auto 20px auto;
     font-size: 24px;
     font-weight: 700;
-    color: white;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+    color: #0f0c24;
+    border-bottom: 2px solid rgba(15, 12, 36, 0.15);
     padding-bottom: 8px;
 }
 
@@ -138,8 +138,8 @@ h2 {
     max-width: 800px;
     margin: 30px auto 15px auto;
     font-size: 18px;
-    font-weight: 600;
-    color: #00b4d8;
+    font-weight: 700;
+    color: #0f0c24;
 }
 
 /* Styled Specification Lists */
@@ -163,7 +163,7 @@ li {
 }
 
 li::before {
-    content: "âœ“";
+    content: "Ã¢Å“â€œ";
     position: absolute;
     left: 15px;
     color: #06d6a0;
@@ -189,7 +189,7 @@ ul ul li {
 }
 
 ul ul li::before {
-    content: "â†³";
+    content: "Ã¢â€ Â³";
     color: #00b4d8;
 }
 
