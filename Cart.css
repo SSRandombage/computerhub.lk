@@ -71,7 +71,7 @@ body {
 .cart-item-card .subtotal {
     font-weight: 700;
     font-size: 1.25em;
-    color: #ffb703;
+    color: #f72585;
     margin: 8px 0 15px 0;
 }
 
@@ -133,7 +133,7 @@ body {
 .total-section .total-amount {
     font-weight: 700;
     font-size: 2.2em;
-    color: #ffb703;
+    color: #f72585;
 }
 
 .checkout-section {
