@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="Login.css">
+</head>
+<body>
+    <div class="login-box">
+        <div class="login-header">
+            <header>Sign Up</header>
+        </div>
+        
+        <!-- Error Message Display -->
+        <div id="message-container" style="display: none;">
+            <p id="message-text"></p>
+        </div>
+        
+        <form action="NewBackend/auth/signup.php" method="post" id="signupForm" onsubmit="return validateForm()">
+            <div class="input-box">
+                <input type="text" name="name" class="input-field" placeholder="Full Name" autocomplete="off" required>
+            </div>
+
+            <div class="input-box">
+                <input type="email" name="email" class="input-field" placeholder="Email" autocomplete="off" required>
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="password" class="input-field" placeholder="Password" autocomplete="off" required>
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="confirm_password" class="input-field" placeholder="Confirm Password" autocomplete="off" required>
+            </div>
+
+            <!--security confirmation checkbox-->
+            <div class="check-box">
+                <input type="checkbox" id="security-check" required>
+                <label for="security-check">I confirm that my details are correct and secure.</label>
+            </div>
+
+            <!--submission button-->
+            <div class="input-submit">
+                <button type="submit" class="submit-btn" id="submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Client-side form validation
+        function validateForm() {
+            const name = document.querySelector('input[name="name"]').value.trim();
+            const email = document.querySelector('input[name="email"]').value.trim();
+            const password = document.querySelector('input[name="password"]').value;
+            const confirmPassword = document.querySelector('input[name="confirm_password"]').value;
+            const securityCheck = document.getElementById('security-check').checked;
+            
+            // Clear previous error messages
+            const messageContainer = document.getElementById('message-container');
+            messageContainer.style.display = 'none';
+            
+            // Check if fields are empty
+            if (name === '' || email === '' || password === '' || confirmPassword === '') {
+                showError('Please fill in all fields.');
+                return false;
+            }
+            
+            // Check if name is valid
+            if (name.length < 2) {
+                showError('Name must be at least 2 characters long.');
+                return false;
+            }
+            
+            // Check if email is valid
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showError('Please enter a valid email address.');
+                return false;
+            }
+            
+            // Check if password is strong enough
+            if (password.length < 6) {
+                showError('Password must be at least 6 characters long.');
+                return false;
+            }
+            
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                showError('Passwords do not match.');
+                return false;
+            }
+            
+            // Check if security checkbox is checked
+            if (!securityCheck) {
+                showError('Please confirm that your details are correct and secure.');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function showError(message) {
+            const messageContainer = document.getElementById('message-container');
+            const messageText = document.getElementById('message-text');
+            
+            messageContainer.style.display = 'block';
+            messageContainer.style.backgroundColor = '#ffebee';
+            messageContainer.style.color = '#c62828';
+            messageContainer.style.padding = '10px';
+            messageContainer.style.borderRadius = '5px';
+            messageContainer.style.marginBottom = '20px';
+            messageContainer.style.textAlign = 'center';
+            
+            messageText.textContent = message;
+        }
+        
+        // Handle error messages from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        
+        const messageContainer = document.getElementById('message-container');
+        const messageText = document.getElementById('message-text');
+        
+        if (error) {
+            messageContainer.style.display = 'block';
+            messageContainer.style.backgroundColor = '#ffebee';
+            messageContainer.style.color = '#c62828';
+            messageContainer.style.padding = '10px';
+            messageContainer.style.borderRadius = '5px';
+            messageContainer.style.marginBottom = '20px';
+            messageContainer.style.textAlign = 'center';
+            
+            const errorMessages = {
+                'empty_fields': 'Please fill in all fields.',
+                'invalid_email': 'Please enter a valid email address.',
+                'weak_password': 'Password must be at least 6 characters long.',
+                'password_mismatch': 'Passwords do not match.',
+                'email_exists': 'Email already registered. Please use a different email or login.',
+                'registration_failed': 'Registration failed. Please try again.'
+            };
+            
+            messageText.textContent = errorMessages[error] || 'An error occurred. Please try again.';
+        }
+    </script>
+</body>
+</html>

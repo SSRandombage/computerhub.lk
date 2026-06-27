@@ -1,0 +1,195 @@
+body {
+    background: linear-gradient(120deg, #2980b9, #8e44ad);
+    margin: 0;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: rgba(10, 5, 25, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 24px;
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                border-color 0.4s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(0, 180, 216, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 180, 216, 0.25), 0 0 15px rgba(0, 180, 216, 0.1);
+}
+
+.category{
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 8px 0;
+}
+
+.price{
+    font-weight: 700;
+    font-size: 1.4em;
+    color: #ffb703;
+    margin: 8px 0;
+}
+
+h3{
+    font-weight: 600;
+    font-size: 1.3em;
+    color: white;
+    margin: 10px 0;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.3;
+}
+
+h2{
+    font-weight: 600;
+    font-size: 1.1em;
+    color: #06d6a0;
+    margin: 10px 0;
+}
+
+.stock a {
+    display: block;
+    background: linear-gradient(135deg, #00b4d8, #0077b6);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 180, 216, 0.2);
+}
+
+.stock a:hover {
+    background: linear-gradient(135deg, #00d4fc, #0096c7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 180, 216, 0.4);
+}
+
+.cart-button {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, #ffb703, #fb8500);
+    color: #023047;
+    font-weight: 700;
+    font-size: 15px;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 20px;
+    margin-top: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(251, 133, 0, 0.2);
+}
+
+.cart-button:hover {
+    background: linear-gradient(135deg, #ffc93c, #ffb703);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(251, 133, 0, 0.4);
+}
+
+.product-card img{
+    max-width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px;
+}
+
+/* Real-time search filter styling */
+.search-container {
+    max-width: 500px;
+    margin: 40px auto 10px auto;
+    padding: 0 20px;
+    display: flex;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 14px 20px 14px 45px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(16, 10, 38, 0.5);
+    color: white;
+    font-size: 16px;
+    backdrop-filter: blur(8px);
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.search-input:focus {
+    border-color: #00b4d8;
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.25), 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 36px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.4);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.3s ease;
+}
+
+.search-input:focus + .search-icon svg {
+    stroke: #00b4d8;
+}
+
+/* Card fade classes for real-time search */
+.product-card.hidden {
+    display: none !important;
+}
+
+@media (max-width: 768px){
+    .grid-container{
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+}
+

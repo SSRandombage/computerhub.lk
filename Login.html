@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Login.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="login-box">
+        <div class="login-header">
+            <header>Login</header>
+        </div>
+        
+        <!-- Error/Success Message Display -->
+        <div id="message-container" style="display: none;">
+            <p id="message-text"></p>
+        </div>
+        
+        <form action="NewBackend/auth/login.php" method="post" id="loginForm" onsubmit="return validateForm()">
+            <div class="input-box">
+                <input type="email" name="email" class="input-field" placeholder="Email" autocomplete="new-password" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" class="input-field" placeholder="Password" autocomplete="new-password" required>
+            </div>
+            <div class="forgot">
+                <section>
+                    <input type="checkbox" id="check">
+                    <label for="check">Remember me</label>
+                </section>
+                <section>
+                    <a href="#">Forgot Password</a>
+                </section>
+            </div>
+            <div class="input-submit">
+                <button type="submit" class="submit-btn" id="submit">Sign in</button>
+            </div>
+        </form>
+        <div class="sign-up-link">
+            <p>Don't have account? <a href="signup.html">Sign Up</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Client-side form validation
+        function validateForm() {
+            const email = document.querySelector('input[name="email"]').value.trim();
+            const password = document.querySelector('input[name="password"]').value.trim();
+            
+            // Clear previous error messages
+            const messageContainer = document.getElementById('message-container');
+            messageContainer.style.display = 'none';
+            
+            // Check if fields are empty
+            if (email === '' || password === '') {
+                showError('Please fill in all fields.');
+                return false;
+            }
+            
+            // Check if email is valid
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showError('Please enter a valid email address.');
+                return false;
+            }
+            
+            // Check if password is not empty
+            if (password.length < 1) {
+                showError('Password cannot be empty.');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function showError(message) {
+            const messageContainer = document.getElementById('message-container');
+            const messageText = document.getElementById('message-text');
+            
+            messageContainer.style.display = 'block';
+            messageContainer.style.backgroundColor = '#ffebee';
+            messageContainer.style.color = '#c62828';
+            messageContainer.style.padding = '10px';
+            messageContainer.style.borderRadius = '5px';
+            messageContainer.style.marginBottom = '20px';
+            messageContainer.style.textAlign = 'center';
+            
+            messageText.textContent = message;
+        }
+        
+        // Handle error/success messages from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        const success = urlParams.get('success');
+        
+        const messageContainer = document.getElementById('message-container');
+        const messageText = document.getElementById('message-text');
+        
+        if (error) {
+            messageContainer.style.display = 'block';
+            messageContainer.style.backgroundColor = '#ffebee';
+            messageContainer.style.color = '#c62828';
+            messageContainer.style.padding = '10px';
+            messageContainer.style.borderRadius = '5px';
+            messageContainer.style.marginBottom = '20px';
+            messageContainer.style.textAlign = 'center';
+            
+            const errorMessages = {
+                'empty_fields': 'Please fill in all fields.',
+                'invalid_credentials': 'Invalid email or password.',
+                'invalid_form': 'Form submission error. Please try again.',
+                'system_error': 'System error. Please try again later.'
+            };
+            
+            messageText.textContent = errorMessages[error] || 'An error occurred. Please try again.';
+        }
+        
+        if (success) {
+            messageContainer.style.display = 'block';
+            messageContainer.style.backgroundColor = '#e8f5e8';
+            messageContainer.style.color = '#2e7d32';
+            messageContainer.style.padding = '10px';
+            messageContainer.style.borderRadius = '5px';
+            messageContainer.style.marginBottom = '20px';
+            messageContainer.style.textAlign = 'center';
+            
+            const successMessages = {
+                'registration_complete': 'Registration successful! Please login.'
+            };
+            
+            messageText.textContent = successMessages[success] || 'Operation completed successfully.';
+        }
+    </script>
+</body>
+</html>

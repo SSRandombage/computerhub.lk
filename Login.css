@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #2980b9, #8e44ad);
+    padding: 20px;
+}
+
+.login-box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    padding: 40px 30px;
+    background: rgba(10, 5, 25, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    animation: boxFadeIn 0.5s ease-out;
+}
+
+@keyframes boxFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.login-header{
+    text-align: center;
+    margin: 10px 0 30px 0;
+}
+
+.login-header header{
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box .input-field{
+    width: 100%;
+    height: 54px;
+    font-size: 15px;
+    padding: 0 20px;
+    border-radius: 27px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(0, 0, 0, 0.25);
+    color: white;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-box .input-field::placeholder{
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.input-field:focus{
+    border-color: #00b4d8;
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 0 12px rgba(0, 180, 216, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-field:focus::placeholder {
+    color: transparent;
+}
+
+.forgot{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0 30px 0;
+    font-size: 14px;
+}
+
+.check-box {
+    display: flex;
+    align-items: center;
+    margin: 5px 0 25px 0;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.check-box input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #00b4d8;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+section{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#check{
+    margin-right: 8px;
+    accent-color: #00b4d8;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+section a{
+    color: #00b4d8;
+    font-weight: 500;
+}
+
+section a:hover {
+    color: #00d4fc;
+}
+
+.input-submit{
+    width: 100%;
+}
+
+.submit-btn{
+    width: 100%;
+    height: 54px;
+    background: linear-gradient(135deg, #00b4d8, #0077b6);
+    border: none;
+    border-radius: 27px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 180, 216, 0.25);
+}
+
+.submit-btn:hover{
+    background: linear-gradient(135deg, #00d4fc, #0096c7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+}
+
+.sign-up-link{
+    text-align: center;
+    font-size: 14px;
+    margin-top: 25px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.sign-up-link a{
+    color: #00b4d8;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.sign-up-link a:hover {
+    color: #00d4fc;
+}
+
+/* Error/Success Alert message styles inside card */
+#message-container {
+    animation: messageSlide 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes messageSlide {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
