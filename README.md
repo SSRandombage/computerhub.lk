@@ -72,7 +72,7 @@ The database script automatically inserts default accounts for testing:
 ├── Detailed Pages/       # Detailed specification pages for individual laptops/parts
 ├── Images/               # Images and assets used across categories
 ├── script.js             # Simplified client-side interactive logic (AJAX, Search filter, Navbar)
-├── Home.js               # Slideshow animation script for Home Page
+├── index.js              # Slideshow animation script for Home Page
 ├── Cart.php              # Shopping cart dashboard
 ├── Categories.html       # Overview of main shopping departments
 ├── index.html        # Main landing page
