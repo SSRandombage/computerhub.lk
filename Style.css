@@ -45,7 +45,7 @@ body {
 .price{
     font-weight: 700;
     font-size: 1.4em;
-    color: #ffb703;
+    color: #f72585;
     margin: 8px 0;
 }
 
@@ -64,7 +64,7 @@ h3{
 h2{
     font-weight: 600;
     font-size: 1.1em;
-    color: #06d6a0;
+    color: #00f5ff;
     margin: 10px 0;
 }
 
@@ -78,7 +78,6 @@ h2{
     font-weight: 600;
     text-decoration: none;
     font-size: 16px;
-    cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 180, 216, 0.2);
 }
@@ -92,8 +91,8 @@ h2{
 .cart-button {
     display: block;
     width: 100%;
-    background: linear-gradient(135deg, #ffb703, #fb8500);
-    color: #023047;
+    background: linear-gradient(135deg, #00b4d8, #7209b7);
+    color: white;
     font-weight: 700;
     font-size: 15px;
     border: none;
@@ -102,13 +101,13 @@ h2{
     margin-top: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(251, 133, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 180, 216, 0.2);
 }
 
 .cart-button:hover {
-    background: linear-gradient(135deg, #ffc93c, #ffb703);
+    background: linear-gradient(135deg, #00d4fc, #b5179e);
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(251, 133, 0, 0.4);
+    box-shadow: 0 6px 15px rgba(0, 180, 216, 0.4);
 }
 
 .product-card img{
